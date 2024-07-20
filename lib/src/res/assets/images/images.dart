@@ -1,5 +1,5 @@
-String _homeDir = 'assets/images';
-String _onboardingDir = 'assets/onboarding';
+String _homeDir = 'assets/images/home';
+String _onboardingDir = 'assets/images/onboarding';
 
 ///[HOME]
 String avatarImg = '$_homeDir/avatar.png';

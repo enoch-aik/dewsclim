@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ChoosePreferredLanguage.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ChoosePreferredLanguageScreen(),
+      );
+    },
     Onboarding.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -28,6 +34,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [ChoosePreferredLanguageScreen]
+class ChoosePreferredLanguage extends PageRouteInfo<void> {
+  const ChoosePreferredLanguage({List<PageRouteInfo>? children})
+      : super(
+          ChoosePreferredLanguage.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChoosePreferredLanguage';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
