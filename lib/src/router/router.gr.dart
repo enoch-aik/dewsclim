@@ -39,10 +39,34 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const GenderRegScreen(),
       );
     },
+    Home.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeScreen(),
+      );
+    },
+    LoginOtp.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginOtpScreen(),
+      );
+    },
+    Login.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginScreen(),
+      );
+    },
     Onboarding.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const OnboardingScreen(),
+      );
+    },
+    OtpReg.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OtpRegScreen(),
       );
     },
     PhoneNumberReg.name: (routeData) {
@@ -117,6 +141,48 @@ class GenderReg extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [HomeScreen]
+class Home extends PageRouteInfo<void> {
+  const Home({List<PageRouteInfo>? children})
+      : super(
+          Home.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'Home';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoginOtpScreen]
+class LoginOtp extends PageRouteInfo<void> {
+  const LoginOtp({List<PageRouteInfo>? children})
+      : super(
+          LoginOtp.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginOtp';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoginScreen]
+class Login extends PageRouteInfo<void> {
+  const Login({List<PageRouteInfo>? children})
+      : super(
+          Login.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'Login';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [OnboardingScreen]
 class Onboarding extends PageRouteInfo<void> {
   const Onboarding({List<PageRouteInfo>? children})
@@ -126,6 +192,20 @@ class Onboarding extends PageRouteInfo<void> {
         );
 
   static const String name = 'Onboarding';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OtpRegScreen]
+class OtpReg extends PageRouteInfo<void> {
+  const OtpReg({List<PageRouteInfo>? children})
+      : super(
+          OtpReg.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OtpReg';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

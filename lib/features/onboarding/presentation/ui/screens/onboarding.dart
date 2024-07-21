@@ -49,23 +49,22 @@ class OnboardingScreen extends HookWidget {
           currentPage.value <= 1
               ? FilledButton(
                   onPressed: () {
-                    pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+                    pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
                   },
                   child: const Text('Next'),
                 )
               : Column(
                   children: [
-                    SizedBox(
-                        width: double.maxFinite,
-                        child: FilledButton(
-                            onPressed: () => AppNavigator.of(context)
-                                  .push(const ChoosePreferredLanguage()),
-                            child: const Text('Register'))),
+                    FilledButton(
+                        onPressed: () => AppNavigator.of(context)
+                              .push(const ChoosePreferredLanguage()),
+                        child: const Text('Register')),
                     const ColSpacing(8),
-                    SizedBox(
-                        width: double.maxFinite,
-                        child: OutlinedButton(
-                            onPressed: () {}, child: const Text('Login'))),
+                    OutlinedButton(
+                        onPressed: () {
+                          AppNavigator.of(context).replace(const Login());
+
+                        }, child: const Text('Login')),
                   ],
                 ),
         ],

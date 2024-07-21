@@ -7,7 +7,7 @@ String _logoDir = 'assets/svg/logo';
 
 String backButtonSvg = '$_svgDir/back_button.svg';
 ///[AUTH]
-String authSuccess = '$_authDir/auth_success.svg';
+String authSuccessSvg = '$_authDir/auth_success.svg';
 
 ///[HOME]
 String cropYieldSvg = '$_homeDir/crop_yield.svg';

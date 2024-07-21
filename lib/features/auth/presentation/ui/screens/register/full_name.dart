@@ -1,6 +1,8 @@
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
 import 'package:dewsclim/src/res/styles/styles.dart';
+import 'package:dewsclim/src/router/navigator.dart';
+import 'package:dewsclim/src/router/router.dart';
 import 'package:dewsclim/src/widgets/margin.dart';
 
 @RoutePage(name: 'fullNameReg')
@@ -15,15 +17,19 @@ class FullNameRegScreen extends StatelessWidget {
           child: SizedBox(
             width: double.maxFinite,
             height: 50,
-            child: FilledButton(onPressed: () {}, child: Text('Continue')),
+            child:
+                FilledButton(onPressed: () {
+                  AppNavigator.of(context).push(const GenderReg());
+
+                }, child: const Text('Continue')),
           ),
         ),
         appBar: AppBar(),
         body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              ColSpacing(100),
+              const ColSpacing(100),
               Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -35,7 +41,7 @@ class FullNameRegScreen extends StatelessWidget {
                       fontWeight: FontWeight.w500),
                 ),
               ),
-              ColSpacing(72),
+              const ColSpacing(72),
               TextFormField(
                 textAlign: TextAlign.center,
                 style: AppStyles.bodyTextStyle.copyWith(
