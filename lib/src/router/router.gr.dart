@@ -15,16 +15,40 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AgeReg.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AgeRegScreen(),
+      );
+    },
     ChoosePreferredLanguage.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ChoosePreferredLanguageScreen(),
       );
     },
+    FullNameReg.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FullNameRegScreen(),
+      );
+    },
+    GenderReg.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GenderRegScreen(),
+      );
+    },
     Onboarding.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const OnboardingScreen(),
+      );
+    },
+    PhoneNumberReg.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PhoneNumberRegScreen(),
       );
     },
     Splash.name: (routeData) {
@@ -34,6 +58,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AgeRegScreen]
+class AgeReg extends PageRouteInfo<void> {
+  const AgeReg({List<PageRouteInfo>? children})
+      : super(
+          AgeReg.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AgeReg';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -51,6 +89,34 @@ class ChoosePreferredLanguage extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [FullNameRegScreen]
+class FullNameReg extends PageRouteInfo<void> {
+  const FullNameReg({List<PageRouteInfo>? children})
+      : super(
+          FullNameReg.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FullNameReg';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [GenderRegScreen]
+class GenderReg extends PageRouteInfo<void> {
+  const GenderReg({List<PageRouteInfo>? children})
+      : super(
+          GenderReg.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GenderReg';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [OnboardingScreen]
 class Onboarding extends PageRouteInfo<void> {
   const Onboarding({List<PageRouteInfo>? children})
@@ -60,6 +126,20 @@ class Onboarding extends PageRouteInfo<void> {
         );
 
   static const String name = 'Onboarding';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PhoneNumberRegScreen]
+class PhoneNumberReg extends PageRouteInfo<void> {
+  const PhoneNumberReg({List<PageRouteInfo>? children})
+      : super(
+          PhoneNumberReg.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PhoneNumberReg';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

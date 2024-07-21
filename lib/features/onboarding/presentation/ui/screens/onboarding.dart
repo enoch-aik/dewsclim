@@ -27,7 +27,7 @@ class OnboardingScreen extends HookWidget {
 
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const ColSpacing(100),
@@ -48,8 +48,10 @@ class OnboardingScreen extends HookWidget {
           PageIndicatorWidget(pageController: pageController),
           currentPage.value <= 1
               ? FilledButton(
-                  onPressed: () {},
-                  child: Text('Next'),
+                  onPressed: () {
+                    pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+                  },
+                  child: const Text('Next'),
                 )
               : Column(
                   children: [
@@ -57,13 +59,13 @@ class OnboardingScreen extends HookWidget {
                         width: double.maxFinite,
                         child: FilledButton(
                             onPressed: () => AppNavigator.of(context)
-                                  .push(ChoosePreferredLanguage()),
-                            child: Text('Register'))),
+                                  .push(const ChoosePreferredLanguage()),
+                            child: const Text('Register'))),
                     const ColSpacing(8),
                     SizedBox(
                         width: double.maxFinite,
                         child: OutlinedButton(
-                            onPressed: () {}, child: Text('Login'))),
+                            onPressed: () {}, child: const Text('Login'))),
                   ],
                 ),
         ],
