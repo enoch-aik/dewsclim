@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "977390784830",
+    "project_id": "dewsclim",
+    "storage_bucket": "dewsclim.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:977390784830:android:5a5f7fcba66b4fe83ddc6f",
+        "android_client_info": {
+          "package_name": "com.example.dewsclim"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrPFCE1FNW6gBKC4vFcd64GWUue8tpVGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
