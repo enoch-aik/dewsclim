@@ -14,6 +14,8 @@ class AppTheme {
       actionIconTheme: ActionIconThemeData(
         backButtonIconBuilder: (BuildContext context) =>
             SvgPicture.asset(backButtonSvg),
+        endDrawerButtonIconBuilder: (BuildContext context) =>
+           const Icon(Icons.menu, color: AppColors.baseBlack),
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
