@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dewsclim/features/auth/presentation/ui/screens/login/login.dart';
 import 'package:dewsclim/features/auth/presentation/ui/screens/register/register.dart';
 import 'package:dewsclim/features/home/presentation/ui/screens/home.dart';
+import 'package:dewsclim/features/home/presentation/ui/screens/select_location.dart';
 import 'package:dewsclim/features/onboarding/presentation/ui/screens/onboarding.dart';
 import 'package:dewsclim/features/splash/presentation/ui/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class AppRouter extends _$AppRouter {
 
         ///HOME
         AutoRoute(page: Home.page),
+        AutoRoute(page: SelectLocation.page),
       ];
 
   Route<T> modalSheetBuilder<T>(

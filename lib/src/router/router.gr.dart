@@ -75,6 +75,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const PhoneNumberRegScreen(),
       );
     },
+    SelectLocation.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SelectLocationScreen(),
+      );
+    },
     Splash.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -220,6 +226,20 @@ class PhoneNumberReg extends PageRouteInfo<void> {
         );
 
   static const String name = 'PhoneNumberReg';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SelectLocationScreen]
+class SelectLocation extends PageRouteInfo<void> {
+  const SelectLocation({List<PageRouteInfo>? children})
+      : super(
+          SelectLocation.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SelectLocation';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

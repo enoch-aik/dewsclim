@@ -5,11 +5,17 @@ import 'package:dewsclim/src/res/styles/styles.dart';
 import 'package:dewsclim/src/widgets/widgets.dart';
 
 @RoutePage(name: 'otpReg')
-class OtpRegScreen extends StatelessWidget {
+class OtpRegScreen extends HookConsumerWidget {
   const OtpRegScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ValueNotifier<bool> isValidField = ValueNotifier<bool>(false);
+    validateField(String otp) {
+      bool isValid = otp.length == 4;
+      isValidField.value = isValid;
+    }
+
     verifyOtp(String otp) {
       ///integrate with backend to verify otp when ready
     }
@@ -45,37 +51,46 @@ class OtpRegScreen extends StatelessWidget {
                 length: 4,
                 builder: CodeInputBuilders.darkCircle(emptyRadius: 56),
                 onFilled: (value) => verifyOtp(value),
+                onChanged: (value) => validateField(value),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 40),
               child: FilledButton(
                   onPressed: () {
-                    Loader.show(context);
-                    Future.delayed((const Duration(seconds: 2)), () {
-                      Loader.hide(context);
-                      RegistrationCompleteModal.displayModal(context,
-                          fromRegistration: true);
-                    });
+                    if (isValidField.value) {
+                      Loader.show(context);
+                      Future.delayed((const Duration(seconds: 2)), () {
+                        Loader.hide(context);
+                        RegistrationCompleteModal.displayModal(context,
+                            fromRegistration: true);
+                      });
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              backgroundColor: AppColors.error,
+                              content: Text('OTP must be 4 digits')));
+                    }
                   },
                   child: const Text('Continue')),
             ),
             TextButton(
-                onPressed: () {
-                  Loader.show(context);
-                  Future.delayed((const Duration(seconds: 2)), () {
-                    Loader.hide(context);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Code resent')));
-                  });
-                },
-                child: Text(
-                  'Didn\'t receive code? Resend',
-                  style: AppStyles.bodyTextStyle.copyWith(
-                      fontSize: 14,
-                      color: AppColors.neutral500,
-                      fontWeight: FontWeight.w400),
-                ))
+              onPressed: () {
+                Loader.show(context);
+                Future.delayed((const Duration(seconds: 2)), () {
+                  Loader.hide(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Code resent')));
+                });
+              },
+              child: Text(
+                'Didn\'t receive code? Resend',
+                style: AppStyles.bodyTextStyle.copyWith(
+                    fontSize: 14,
+                    color: AppColors.neutral500,
+                    fontWeight: FontWeight.w400),
+              ),
+            )
           ],
         ),
       ),
