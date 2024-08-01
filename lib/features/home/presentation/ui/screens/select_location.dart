@@ -1,4 +1,5 @@
-import 'package:dewsclim/features/home/presentation/ui/modals/registration_complete.dart';
+import 'package:dewsclim/features/home/presentation/ui/modals/location_added.dart';
+import 'package:dewsclim/features/home/providers.dart';
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/app_constants/ngn_states.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
@@ -11,7 +12,7 @@ class SelectLocationScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedLocation = useState(nigerianStates[0]);
+    final selectedLctn = useState(nigerianStates[0]);
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         topLeft: Radius.circular(32),
@@ -22,9 +23,11 @@ class SelectLocationScreen extends HookConsumerWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: FilledButton(
               onPressed: () {
+                ref.read(selectedLocation.notifier).state = selectedLctn.value;
+
                 Navigator.of(context).pop();
                 LocationAddedModal.displayModal(context,
-                    location: selectedLocation.value);
+                    location: ref.watch(selectedLocation));
               },
               child: const Text('Select')),
         ),
@@ -58,9 +61,9 @@ class SelectLocationScreen extends HookConsumerWidget {
                           nigerianStates[index],
                           style: AppStyles.bodyTextStyle.copyWith(fontSize: 18),
                         ),
-                        groupValue: selectedLocation.value,
+                        groupValue: selectedLctn.value,
                         onChanged: (String? value) {
-                          selectedLocation.value = value!;
+                          selectedLctn.value = value!;
                         });
                   },
                   separatorBuilder: (context, index) {

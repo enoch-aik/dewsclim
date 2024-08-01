@@ -66,10 +66,9 @@ class OtpRegScreen extends HookConsumerWidget {
                             fromRegistration: true);
                       });
                     } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                              backgroundColor: AppColors.error,
-                              content: Text('OTP must be 4 digits')));
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          backgroundColor: AppColors.error,
+                          content: Text('OTP must be 4 digits')));
                     }
                   },
                   child: const Text('Continue')),

@@ -1,3 +1,4 @@
+import 'package:dewsclim/core/validators/text_field_validators.dart';
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
 import 'package:dewsclim/src/res/styles/styles.dart';
@@ -55,7 +56,13 @@ class FullNameRegScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Enter your full name to continue';
+                    return 'Enter your first and last name to continue';
+                  }
+                  if (!TextFieldValidator.fullNameExp.hasMatch(value)) {
+                    return 'Enter your first and last name to continue';
+                  }
+                  if (value.split(' ').length < 2) {
+                    return 'Enter your first and last name to continue';
                   }
                   return null;
                 },

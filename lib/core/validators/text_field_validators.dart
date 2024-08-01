@@ -16,11 +16,15 @@ class TextFieldValidator {
   //Validator for name
   static final RegExp nameExp = RegExp(r'^[A-Za-z ]+$');
 
+  //Validator for full name to confirm that first name and last name are entered where a space is between them
+  static final RegExp fullNameExp = RegExp(r'^[A-Za-z]+ [A-Za-z]+$');
+
   //Validator for number
   static final RegExp numberExp = RegExp(r'^[0-9]+$');
 
   //validator for tns name
-  static final  RegExp tnsExp = RegExp(r'^[a-zA-Z][a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{3,15}$');
+  static final RegExp tnsExp =
+      RegExp(r'^[a-zA-Z][a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{3,15}$');
 
   static String? nameValidator({required String value}) {
     final RegExp nameExp = RegExp(r'^[A-Za-z ]+$');

@@ -13,13 +13,14 @@ Future showLoadingDialog(context) {
         return false;
       },
       child: Center(
-          child: Lottie.asset(
-        loadingAnimation,
-        height: 160,
-        frameRate: FrameRate.max,
-        repeat: true,
-        errorBuilder: (context, e, _) => const CircularProgressIndicator(),
-      ),),
+        child: Lottie.asset(
+          loadingAnimation,
+          height: 160,
+          frameRate: FrameRate.max,
+          repeat: true,
+          errorBuilder: (context, e, _) => const CircularProgressIndicator(),
+        ),
+      ),
     ),
   );
 }

@@ -90,8 +90,7 @@ class LoginScreen extends HookConsumerWidget {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    AppNavigator.of(context)
-                        .push(const ChoosePreferredLanguage());
+                    AppNavigator.of(context).push(ChoosePreferredLanguage());
                   },
                   child: Text(
                     'Don\'t have an account? Register',

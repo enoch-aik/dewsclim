@@ -2,7 +2,6 @@ import 'package:dewsclim/src/res/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-
 class PageIndicatorWidget extends StatelessWidget {
   final PageController pageController;
 
@@ -18,10 +17,7 @@ class PageIndicatorWidget extends StatelessWidget {
             // PageController
             count: 3,
             effect: const ExpandingDotsEffect(
-              dotHeight: 8,
-              dotWidth: 8,
-              activeDotColor: AppColors.primary
-            ),
+                dotHeight: 8, dotWidth: 8, activeDotColor: AppColors.primary),
             // your preferred effect
             onDotClicked: (index) {}),
       ),
