@@ -1,13 +1,14 @@
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
 import 'package:dewsclim/src/res/styles/styles.dart';
-import 'package:dewsclim/src/router/navigator.dart';
 import 'package:dewsclim/src/router/router.dart';
 import 'package:dewsclim/src/widgets/margin.dart';
 
 @RoutePage(name: 'choosePreferredLanguage')
 class ChoosePreferredLanguageScreen extends HookConsumerWidget {
-  const ChoosePreferredLanguageScreen({super.key});
+  final bool fromOnboarding;
+
+  const ChoosePreferredLanguageScreen({super.key, this.fromOnboarding = false});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -59,11 +60,13 @@ class ChoosePreferredLanguageScreen extends HookConsumerWidget {
             );
           }),
           const ColSpacing(140),
-          SizedBox(height: 50,
+          SizedBox(
+            height: 50,
             child: FilledButton(
               onPressed: () {
-                // AppNavigator.of(context).push(Onboarding());
-                AppNavigator.of(context).push(const FullNameReg());
+                fromOnboarding
+                    ? AppNavigator.of(context).push(const FullNameReg())
+                    : AppNavigator.of(context).pop();
               },
               child: const Text('Continue'),
             ),
