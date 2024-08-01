@@ -60,21 +60,22 @@ class LoginOtpScreen extends StatelessWidget {
                   child: const Text('Continue')),
             ),
             TextButton(
-                onPressed: () {
-                  Loader.show(context);
-                  Future.delayed((const Duration(seconds: 2)), () {
-                    Loader.hide(context);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Code resent')));
-                  });
-                },
-                child: Text(
-                  'Didn\'t receive code? Resend',
-                  style: AppStyles.bodyTextStyle.copyWith(
-                      fontSize: 14,
-                      color: AppColors.neutral500,
-                      fontWeight: FontWeight.w400),
-                ))
+              onPressed: () {
+                Loader.show(context);
+                Future.delayed((const Duration(seconds: 2)), () {
+                  Loader.hide(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Code resent')));
+                });
+              },
+              child: Text(
+                'Didn\'t receive code? Resend',
+                style: AppStyles.bodyTextStyle.copyWith(
+                    fontSize: 14,
+                    color: AppColors.neutral500,
+                    fontWeight: FontWeight.w400),
+              ),
+            ),
           ],
         ),
       ),

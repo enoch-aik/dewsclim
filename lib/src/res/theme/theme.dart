@@ -15,7 +15,7 @@ class AppTheme {
         backButtonIconBuilder: (BuildContext context) =>
             SvgPicture.asset(backButtonSvg),
         endDrawerButtonIconBuilder: (BuildContext context) =>
-           const Icon(Icons.menu, color: AppColors.baseBlack),
+            const Icon(Icons.menu, color: AppColors.baseBlack),
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
@@ -32,10 +32,11 @@ class AppTheme {
         fillColor: AppColors.neutral100,
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(width: 1,color: AppColors.neutral300)),
+            borderSide:
+                const BorderSide(width: 1, color: AppColors.neutral300)),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(width: 2,color: AppColors.primary)),
+            borderSide: const BorderSide(width: 2, color: AppColors.primary)),
         errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(width: 1)),
@@ -44,15 +45,18 @@ class AppTheme {
             borderSide: const BorderSide(width: 1)),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(width: 1,color: AppColors.neutral300)),
+            borderSide:
+                const BorderSide(width: 1, color: AppColors.neutral300)),
         disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(width: 1,color: AppColors.neutral100)),
+            borderSide:
+                const BorderSide(width: 1, color: AppColors.neutral100)),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-        hintStyle: AppStyles.bodyTextStyle.copyWith(fontSize: 14,
-            color: AppColors.neutral400, fontWeight: FontWeight.w500),
+        hintStyle: AppStyles.bodyTextStyle.copyWith(
+            fontSize: 14,
+            color: AppColors.neutral400,
+            fontWeight: FontWeight.w500),
       ),
-
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
         minimumSize:

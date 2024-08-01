@@ -1,7 +1,6 @@
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
 import 'package:dewsclim/src/res/styles/styles.dart';
-import 'package:dewsclim/src/router/navigator.dart';
 import 'package:dewsclim/src/router/router.dart';
 import 'package:dewsclim/src/widgets/widgets.dart';
 
@@ -20,11 +19,11 @@ class GenderRegScreen extends HookConsumerWidget {
         child: SizedBox(
           width: double.maxFinite,
           height: 50,
-          child:
-          FilledButton(onPressed: () {
-            AppNavigator.of(context).push(const AgeReg());
-
-          }, child: const Text('Continue')),
+          child: FilledButton(
+              onPressed: () {
+                AppNavigator.of(context).push(const AgeReg());
+              },
+              child: const Text('Continue')),
         ),
       ),
       body: SingleChildScrollView(
@@ -50,11 +49,11 @@ class GenderRegScreen extends HookConsumerWidget {
                 padding: const EdgeInsets.only(bottom: 10.0),
                 child: RadioListTile.adaptive(
                   title: Text(
-                   'I am ${genders[index]}',
+                    'I am ${genders[index]}',
                     style: AppStyles.bodyTextStyle.copyWith(
                         fontWeight: FontWeight.w500,
                         color:
-                        isSelected ? AppColors.baseWhite : context.primary),
+                            isSelected ? AppColors.baseWhite : context.primary),
                   ),
                   activeColor: AppColors.baseWhite,
                   fillColor: MaterialStateProperty.all(

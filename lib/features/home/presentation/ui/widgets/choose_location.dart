@@ -1,4 +1,5 @@
 import 'package:dewsclim/features/home/presentation/ui/screens/select_location.dart';
+import 'package:dewsclim/features/home/providers.dart';
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/assets/svg/svg.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
@@ -10,6 +11,7 @@ class ChooseLocation extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedDate = useState(DateTime.now());
     List<String> years = [
       '2024',
       '2025',
@@ -19,7 +21,7 @@ class ChooseLocation extends HookConsumerWidget {
       '2029',
       '2030'
     ];
-    final selectedLocation = useState(years[0]);
+    final selectedLoc = useState(years[0]);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,6 +30,10 @@ class ChooseLocation extends HookConsumerWidget {
           width: 250,
           child: TextFormField(
             readOnly: true,
+            controller: TextEditingController(
+                text: ref.watch(selectedLocation).isEmpty
+                    ? ''
+                    : '${ref.watch(selectedLocation)} state'),
             onTap: () {
               SelectLocationScreen.displayModal(context);
             },
@@ -61,7 +67,7 @@ class ChooseLocation extends HookConsumerWidget {
           child: DropdownButtonHideUnderline(
             child: DropdownButton(
               dropdownColor: AppColors.primary,
-              value: selectedLocation.value,
+              value: selectedLoc.value,
               padding: const EdgeInsets.only(left: 16),
               style: AppStyles.bodyTextStyle.copyWith(
                   fontSize: 14,
@@ -79,7 +85,7 @@ class ChooseLocation extends HookConsumerWidget {
               ),
               borderRadius: BorderRadius.circular(8),
               onChanged: (String? value) {
-                selectedLocation.value = value!;
+                selectedLoc.value = value!;
               },
             ),
           ),

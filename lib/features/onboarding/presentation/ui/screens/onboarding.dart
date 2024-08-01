@@ -2,7 +2,6 @@ import 'package:dewsclim/features/onboarding/presentation/ui/widgets/onboarding_
 import 'package:dewsclim/features/onboarding/presentation/ui/widgets/page_indicator.dart';
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/assets/images/images.dart';
-import 'package:dewsclim/src/router/navigator.dart';
 import 'package:dewsclim/src/router/router.dart';
 import 'package:dewsclim/src/widgets/margin.dart';
 
@@ -49,22 +48,24 @@ class OnboardingScreen extends HookWidget {
           currentPage.value <= 1
               ? FilledButton(
                   onPressed: () {
-                    pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+                    pageController.nextPage(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut);
                   },
                   child: const Text('Next'),
                 )
               : Column(
                   children: [
                     FilledButton(
-                        onPressed: () => AppNavigator.of(context)
-                              .push(const ChoosePreferredLanguage()),
+                        onPressed: () => AppNavigator.of(context).push(
+                            ChoosePreferredLanguage(fromOnboarding: true)),
                         child: const Text('Register')),
                     const ColSpacing(8),
                     OutlinedButton(
                         onPressed: () {
                           AppNavigator.of(context).replace(const Login());
-
-                        }, child: const Text('Login')),
+                        },
+                        child: const Text('Login')),
                   ],
                 ),
         ],

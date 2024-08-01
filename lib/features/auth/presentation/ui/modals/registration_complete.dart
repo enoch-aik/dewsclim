@@ -30,7 +30,7 @@ class RegistrationCompleteModal extends StatelessWidget {
           ),
           const ColSpacing(6),
           Text(
-            'You\'ve successfully\n${fromRegistration? 'registered': 'logged into'} your profile',
+            'You\'ve successfully\n${fromRegistration ? 'registered' : 'logged into'} your profile',
             textAlign: TextAlign.center,
             style: AppStyles.bodyTextStyle.copyWith(
                 fontSize: 14,
@@ -40,7 +40,7 @@ class RegistrationCompleteModal extends StatelessWidget {
           const ColSpacing(40),
           FilledButton(
               onPressed: () {
-                AppNavigator.of(context).replaceAll([Home()]);
+                AppNavigator.of(context).replaceAll([const AppShell()]);
               },
               child: const Text('Go to Home'))
         ],

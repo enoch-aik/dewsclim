@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:dewsclim/lib.dart';
-import 'package:dewsclim/src/router/navigator.dart';
 import 'package:dewsclim/src/router/router.dart';
 
 @RoutePage(name: 'splash')
@@ -19,13 +18,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     redirect();
   }
 
-
   //redirect user to onboarding screen if user is not logged in
   redirect() {
     Future.delayed(const Duration(milliseconds: 3000), () {
       AppNavigator.of(context).replace(const Onboarding());
     });
-
   }
 
   @override
