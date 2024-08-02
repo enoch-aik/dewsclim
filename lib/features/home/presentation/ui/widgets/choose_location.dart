@@ -1,4 +1,5 @@
-import 'package:dewsclim/features/home/presentation/ui/screens/select_location.dart';
+import 'package:dewsclim/features/home/presentation/ui/dialog/choose_year.dart';
+import 'package:dewsclim/features/home/presentation/ui/modals/select_location.dart';
 import 'package:dewsclim/features/home/providers.dart';
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/assets/svg/svg.dart';
@@ -12,16 +13,7 @@ class ChooseLocation extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedDate = useState(DateTime.now());
-    List<String> years = [
-      '2024',
-      '2025',
-      '2026',
-      '2027',
-      '2028',
-      '2029',
-      '2030'
-    ];
-    final selectedLoc = useState(years[0]);
+    final year = ref.watch(selectedYear);
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,7 +24,7 @@ class ChooseLocation extends HookConsumerWidget {
             readOnly: true,
             controller: TextEditingController(
                 text: ref.watch(selectedLocation).isEmpty
-                    ? ''
+                    ? null
                     : '${ref.watch(selectedLocation)} state'),
             onTap: () {
               SelectLocationScreen.displayModal(context);
@@ -46,7 +38,7 @@ class ChooseLocation extends HookConsumerWidget {
                 ),
               ),
               contentPadding: const EdgeInsets.only(left: 8, top: 8),
-              hintText: 'Selected location',
+              hintText: 'Select a location',
               hintStyle: AppStyles.bodyTextStyle.copyWith(
                   fontSize: 18,
                   color: AppColors.neutral300,
@@ -57,7 +49,35 @@ class ChooseLocation extends HookConsumerWidget {
             ),
           ),
         ),
-        Container(
+        InkWell(
+          onTap: () {
+            showDialog(context: context, builder: (context) => ChooseYear());
+          },
+          child: Container(
+            height: 35,
+            width: 80,
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            alignment: Alignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  year,
+                  style: AppStyles.bodyTextStyle
+                      .copyWith(color: AppColors.baseWhite),
+                ),
+                const Icon(
+                  Icons.keyboard_arrow_down_rounded,
+                  color: AppColors.baseWhite,
+                )
+              ],
+            ),
+          ),
+        ),
+        /*Container(
           height: 35,
           width: 80,
           decoration: BoxDecoration(
@@ -89,7 +109,7 @@ class ChooseLocation extends HookConsumerWidget {
               },
             ),
           ),
-        ),
+        ),*/
       ],
     );
   }

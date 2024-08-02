@@ -2,11 +2,12 @@ import 'package:dewsclim/features/home/presentation/ui/widgets/crop_widget.dart'
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
 import 'package:dewsclim/src/res/styles/styles.dart';
+import 'package:dewsclim/src/router/router.dart';
 import 'package:dewsclim/src/widgets/margin.dart';
 
-class CropRequirement extends StatelessWidget {
+class CropRequirementWidget extends StatelessWidget {
   //should take in a model that gives details on the crop requirement
-  const CropRequirement({super.key});
+  const CropRequirementWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +23,12 @@ class CropRequirement extends StatelessWidget {
               fontWeight: FontWeight.w500),
         ),
         const ColSpacing(16),
-        ...crops
-            .map((e) => Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
-                  child: CropWidget(crop: e),
-                ))
-            .toList()
+        ...crops.map(
+          (e) => Padding(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: CropWidget(crop: e),
+          ),
+        ),
       ],
     );
   }
