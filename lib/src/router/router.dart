@@ -17,6 +17,7 @@ import 'package:dewsclim/features/profile/presentation/ui/screens/profile.dart';
 import 'package:dewsclim/features/search/presentation/ui/screens/search.dart';
 import 'package:dewsclim/features/splash/presentation/ui/screens/splash_screen.dart';
 import 'package:dewsclim/features/yield/presentation/ui/screens/yield.dart';
+import 'package:dewsclim/features/yield/presentation/ui/screens/yield_calculator_result.dart';
 import 'package:flutter/material.dart';
 
 part 'router.gr.dart';
@@ -69,6 +70,7 @@ class AppRouter extends _$AppRouter {
         ///YIELD
 
         AutoRoute(page: Yield.page),
+        AutoRoute(page: YieldCalculatorResult.page),
 
         ///PROFILE
         AutoRoute(page: Profile.page)

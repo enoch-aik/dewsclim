@@ -158,6 +158,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const UserFeedbackScreen(),
       );
     },
+    YieldCalculatorResult.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const YieldCalculatorResultScreen(),
+      );
+    },
     Yield.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -510,6 +516,20 @@ class UserFeedback extends PageRouteInfo<void> {
         );
 
   static const String name = 'UserFeedback';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [YieldCalculatorResultScreen]
+class YieldCalculatorResult extends PageRouteInfo<void> {
+  const YieldCalculatorResult({List<PageRouteInfo>? children})
+      : super(
+          YieldCalculatorResult.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'YieldCalculatorResult';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
