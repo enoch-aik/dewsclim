@@ -50,6 +50,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ContactUsScreen(),
       );
     },
+    CropRequirement.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CropRequirementScreen(),
+      );
+    },
     FullNameReg.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -104,10 +110,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const PhoneNumberRegScreen(),
       );
     },
+    PrevalentPests.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PrevalentPestsScreen(),
+      );
+    },
     Profile.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfileScreen(),
+      );
+    },
+    RainfallRequirements.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RainfallRequirementsScreen(),
       );
     },
     Search.name: (routeData) {
@@ -128,10 +146,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashScreen(),
       );
     },
+    TemperatureRequirements.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TemperatureRequirementsScreen(),
+      );
+    },
     UserFeedback.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const UserFeedbackScreen(),
+      );
+    },
+    YieldCalculatorResult.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const YieldCalculatorResultScreen(),
       );
     },
     Yield.name: (routeData) {
@@ -234,6 +264,20 @@ class ContactUs extends PageRouteInfo<void> {
         );
 
   static const String name = 'ContactUs';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CropRequirementScreen]
+class CropRequirement extends PageRouteInfo<void> {
+  const CropRequirement({List<PageRouteInfo>? children})
+      : super(
+          CropRequirement.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CropRequirement';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -365,6 +409,20 @@ class PhoneNumberReg extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PrevalentPestsScreen]
+class PrevalentPests extends PageRouteInfo<void> {
+  const PrevalentPests({List<PageRouteInfo>? children})
+      : super(
+          PrevalentPests.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PrevalentPests';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ProfileScreen]
 class Profile extends PageRouteInfo<void> {
   const Profile({List<PageRouteInfo>? children})
@@ -374,6 +432,20 @@ class Profile extends PageRouteInfo<void> {
         );
 
   static const String name = 'Profile';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RainfallRequirementsScreen]
+class RainfallRequirements extends PageRouteInfo<void> {
+  const RainfallRequirements({List<PageRouteInfo>? children})
+      : super(
+          RainfallRequirements.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RainfallRequirements';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -421,6 +493,20 @@ class Splash extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [TemperatureRequirementsScreen]
+class TemperatureRequirements extends PageRouteInfo<void> {
+  const TemperatureRequirements({List<PageRouteInfo>? children})
+      : super(
+          TemperatureRequirements.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TemperatureRequirements';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [UserFeedbackScreen]
 class UserFeedback extends PageRouteInfo<void> {
   const UserFeedback({List<PageRouteInfo>? children})
@@ -430,6 +516,20 @@ class UserFeedback extends PageRouteInfo<void> {
         );
 
   static const String name = 'UserFeedback';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [YieldCalculatorResultScreen]
+class YieldCalculatorResult extends PageRouteInfo<void> {
+  const YieldCalculatorResult({List<PageRouteInfo>? children})
+      : super(
+          YieldCalculatorResult.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'YieldCalculatorResult';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

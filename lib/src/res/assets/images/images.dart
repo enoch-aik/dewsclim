@@ -9,6 +9,8 @@ String soilTemperatureImg = '$_homeDir/soil_temperature.png';
 String temperatureImg = '$_homeDir/temperature.png';
 String aboutUsImg = '$_homeDir/about_us.png';
 String contactUsImg = '$_homeDir/contact_us.png';
+String maizeImg = '$_homeDir/maize.png';
+String bugImg = '$_homeDir/bug.png';
 
 ///ONBOARDING
 String onboarding1 = '$_onboardingDir/slide_1.png';

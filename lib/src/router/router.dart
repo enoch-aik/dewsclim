@@ -5,14 +5,19 @@ import 'package:dewsclim/features/auth/presentation/ui/screens/register/register
 import 'package:dewsclim/features/gemini/presentation/ui/screens/gemini.dart';
 import 'package:dewsclim/features/home/presentation/ui/screens/about_us.dart';
 import 'package:dewsclim/features/home/presentation/ui/screens/contact_us.dart';
+import 'package:dewsclim/features/home/presentation/ui/screens/crop_requirements/crop_requirements.dart';
+import 'package:dewsclim/features/home/presentation/ui/screens/crop_requirements/prevailing_pests.dart';
+import 'package:dewsclim/features/home/presentation/ui/screens/crop_requirements/rainfall.dart';
+import 'package:dewsclim/features/home/presentation/ui/screens/crop_requirements/temperature.dart';
 import 'package:dewsclim/features/home/presentation/ui/screens/feedback.dart';
 import 'package:dewsclim/features/home/presentation/ui/screens/home.dart';
-import 'package:dewsclim/features/home/presentation/ui/screens/select_location.dart';
+import 'package:dewsclim/features/home/presentation/ui/modals/select_location.dart';
 import 'package:dewsclim/features/onboarding/presentation/ui/screens/onboarding.dart';
 import 'package:dewsclim/features/profile/presentation/ui/screens/profile.dart';
 import 'package:dewsclim/features/search/presentation/ui/screens/search.dart';
 import 'package:dewsclim/features/splash/presentation/ui/screens/splash_screen.dart';
 import 'package:dewsclim/features/yield/presentation/ui/screens/yield.dart';
+import 'package:dewsclim/features/yield/presentation/ui/screens/yield_calculator_result.dart';
 import 'package:flutter/material.dart';
 
 part 'router.gr.dart';
@@ -51,6 +56,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: AboutUs.page),
         AutoRoute(page: ContactUs.page),
         AutoRoute(page: UserFeedback.page),
+        AutoRoute(page: CropRequirement.page),
+        AutoRoute(page: PrevalentPests.page),
+        AutoRoute(page: TemperatureRequirements.page),
+        AutoRoute(page: RainfallRequirements.page),
 
         ///SEARCH
         AutoRoute(page: Search.page),
@@ -61,6 +70,7 @@ class AppRouter extends _$AppRouter {
         ///YIELD
 
         AutoRoute(page: Yield.page),
+        AutoRoute(page: YieldCalculatorResult.page),
 
         ///PROFILE
         AutoRoute(page: Profile.page)
