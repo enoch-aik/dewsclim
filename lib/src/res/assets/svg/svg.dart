@@ -19,6 +19,9 @@ String sendMessageSvg = '$_homeDir/send_message.svg';
 String temperatureOutlinedSvg = '$_homeDir/temperature_outlined.svg';
 String rainfallPatternOutlinedSvg = '$_homeDir/rainfall_pattern_outlined.svg';
 String bugSvg = '$_homeDir/bug.svg';
+String geminiLogoSvg = '$_homeDir/gemini.svg';
+String questionOutlinedSvg = '$_homeDir/question_outlined.svg';
+String geminiSendFilledSvg = '$_homeDir/gemini_send_filled.svg';
 
 ///[BOTTOM NAV]
 String geminiSvg = '$_bottomNavDir/gemini.svg';

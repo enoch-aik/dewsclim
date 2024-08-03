@@ -44,7 +44,7 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   lottie: ^3.1.2
   firebase_core:
-  intl:
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

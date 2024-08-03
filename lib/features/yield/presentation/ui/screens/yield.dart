@@ -1,6 +1,7 @@
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
 import 'package:dewsclim/src/res/styles/styles.dart';
+import 'package:dewsclim/src/router/router.dart';
 import 'package:dewsclim/src/widgets/loader/loader.dart';
 import 'package:dewsclim/src/widgets/margin.dart';
 import 'package:dewsclim/src/widgets/textfield/custom_formfield.dart';
@@ -321,8 +322,7 @@ class YieldScreen extends HookConsumerWidget {
                     Loader.show(context);
                     Future.delayed(const Duration(seconds: 2), () {
                       Loader.hide(context);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Calculation done')));
+                      AppNavigator.of(context).push(const YieldCalculatorResult());
                     });
                   }
                 },
