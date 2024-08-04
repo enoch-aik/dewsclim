@@ -9,6 +9,11 @@ String backButtonSvg = '$_svgDir/back_button.svg';
 ///[AUTH]
 String authSuccessSvg = '$_authDir/auth_success.svg';
 
+///[LOGO]
+String logoSvg = '$_logoDir/logo.svg';
+String namedLogoSvg = '$_logoDir/named_logo.svg';
+String rightSplitLogoSvg = '$_logoDir/right_split_logo.svg';
+String leftSplitLogoSvg = '$_logoDir/left_split_logo.svg';
 ///[HOME]
 String cropYieldSvg = '$_homeDir/crop_yield.svg';
 String locationSvg = '$_homeDir/location.svg';

@@ -3,6 +3,7 @@ String _onboardingDir = 'assets/images/onboarding';
 
 ///[HOME]
 String avatarImg = '$_homeDir/avatar.png';
+String avatarHdImg = '$_homeDir/avatar_hd.png';
 String cropYieldImg = '$_homeDir/crop_yield.png';
 String rainfallPatternImg = '$_homeDir/rainfall_pattern.png';
 String soilTemperatureImg = '$_homeDir/soil_temperature.png';
