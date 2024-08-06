@@ -9,6 +9,11 @@ String backButtonSvg = '$_svgDir/back_button.svg';
 ///[AUTH]
 String authSuccessSvg = '$_authDir/auth_success.svg';
 
+///[LOGO]
+String logoSvg = '$_logoDir/logo.svg';
+String namedLogoSvg = '$_logoDir/named_logo.svg';
+String rightSplitLogoSvg = '$_logoDir/right_split_logo.svg';
+String leftSplitLogoSvg = '$_logoDir/left_split_logo.svg';
 ///[HOME]
 String cropYieldSvg = '$_homeDir/crop_yield.svg';
 String locationSvg = '$_homeDir/location.svg';
@@ -19,6 +24,9 @@ String sendMessageSvg = '$_homeDir/send_message.svg';
 String temperatureOutlinedSvg = '$_homeDir/temperature_outlined.svg';
 String rainfallPatternOutlinedSvg = '$_homeDir/rainfall_pattern_outlined.svg';
 String bugSvg = '$_homeDir/bug.svg';
+String geminiLogoSvg = '$_homeDir/gemini.svg';
+String questionOutlinedSvg = '$_homeDir/question_outlined.svg';
+String geminiSendFilledSvg = '$_homeDir/gemini_send_filled.svg';
 
 ///[BOTTOM NAV]
 String geminiSvg = '$_bottomNavDir/gemini.svg';

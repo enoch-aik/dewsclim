@@ -14,28 +14,30 @@ class UserFeedbackScreen extends HookConsumerWidget {
     final ValueNotifier<List<String>> messages = useState<List<String>>([]);
     return Scaffold(
         appBar: AppBar(
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 32.0),
-            child: InkWell(
-              splashFactory: NoSplash.splashFactory,
-              highlightColor: Colors.transparent,
-              onTap: () {
-                AppNavigator.of(context).pop();
-              },
-              borderRadius: BorderRadius.circular(40),
-              child: const Icon(
-                Icons.arrow_back_ios,
-                weight: .5,
-                color: AppColors.neutral500,
-              ),
+          titleSpacing: 0,
+          title: Transform.translate(
+            offset: const Offset(-10, 0),
+            child: Text(
+              'Back',
+              style: AppStyles.bodyTextStyle.copyWith(
+                  color: AppColors.neutral500,
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w400),
             ),
           ),
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              weight: 0.5,
+              size: 18,
+            ),
+            color: AppColors.neutral500,
+            highlightColor: Colors.transparent,
+            onPressed: () {
+              AppNavigator.of(context).pop();
+            },
+          ),
           centerTitle: false,
-          title: Text('Back',
-              style: AppStyles.bodyTextStyle.copyWith(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.neutral500)),
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -68,7 +70,7 @@ class UserFeedbackScreen extends HookConsumerWidget {
         ),
         bottomSheet: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          color: Colors.transparent,
+          color: Theme.of(context).scaffoldBackgroundColor,
           child: Row(
             children: [
               Expanded(

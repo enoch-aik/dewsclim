@@ -12,12 +12,16 @@ class TemperatureRequirementsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Back',
-          style: AppStyles.bodyTextStyle.copyWith(
-              color: AppColors.baseBlack,
-              fontSize: 14.5,
-              fontWeight: FontWeight.w400),
+        titleSpacing: 0,
+        title: Transform.translate(
+          offset: const Offset(-10, 0),
+          child: Text(
+            'Back',
+            style: AppStyles.bodyTextStyle.copyWith(
+                color: AppColors.baseBlack,
+                fontSize: 14.5,
+                fontWeight: FontWeight.w400),
+          ),
         ),
         leading: IconButton(
           icon: const Icon(
