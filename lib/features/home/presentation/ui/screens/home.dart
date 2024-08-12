@@ -4,7 +4,9 @@ import 'package:dewsclim/features/home/presentation/ui/widgets/crop_requirement.
 import 'package:dewsclim/features/home/presentation/ui/widgets/drawer.dart';
 import 'package:dewsclim/features/home/presentation/ui/widgets/info_tile.dart';
 import 'package:dewsclim/features/home/presentation/ui/widgets/summary.dart';
+import 'package:dewsclim/features/home/providers.dart';
 import 'package:dewsclim/lib.dart';
+import 'package:dewsclim/src/app_constants/ngn_states.dart';
 import 'package:dewsclim/src/extensions/string.dart';
 import 'package:dewsclim/src/res/assets/images/images.dart';
 import 'package:dewsclim/src/res/assets/svg/svg.dart';
@@ -12,11 +14,11 @@ import 'package:dewsclim/src/res/styles/styles.dart';
 import 'package:dewsclim/src/widgets/margin.dart';
 
 @RoutePage(name: 'home')
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends HookConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     List<InfoTileModel> infoTiles = [
       InfoTileModel(
         title: 'Rainfall pattern',
@@ -94,7 +96,7 @@ class HomeScreen extends StatelessWidget {
             ColSpacing(16),
             SummaryWidget(
                 summaryText:
-                    "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos...."),
+                    allStates.firstWhere((e)=>e.name == ref.watch(selectedLocation)).description),
             ColSpacing(16),
             CropRequirementWidget(),
             ColSpacing(40),

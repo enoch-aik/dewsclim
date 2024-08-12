@@ -159,9 +159,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     YieldCalculatorResult.name: (routeData) {
+      final args = routeData.argsAs<YieldCalculatorResultArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const YieldCalculatorResultScreen(),
+        child: YieldCalculatorResultScreen(
+          key: args.key,
+          calculatedYield: args.calculatedYield,
+        ),
       );
     },
     Yield.name: (routeData) {
@@ -522,16 +526,40 @@ class UserFeedback extends PageRouteInfo<void> {
 
 /// generated route for
 /// [YieldCalculatorResultScreen]
-class YieldCalculatorResult extends PageRouteInfo<void> {
-  const YieldCalculatorResult({List<PageRouteInfo>? children})
-      : super(
+class YieldCalculatorResult extends PageRouteInfo<YieldCalculatorResultArgs> {
+  YieldCalculatorResult({
+    Key? key,
+    required YieldResModel calculatedYield,
+    List<PageRouteInfo>? children,
+  }) : super(
           YieldCalculatorResult.name,
+          args: YieldCalculatorResultArgs(
+            key: key,
+            calculatedYield: calculatedYield,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'YieldCalculatorResult';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<YieldCalculatorResultArgs> page =
+      PageInfo<YieldCalculatorResultArgs>(name);
+}
+
+class YieldCalculatorResultArgs {
+  const YieldCalculatorResultArgs({
+    this.key,
+    required this.calculatedYield,
+  });
+
+  final Key? key;
+
+  final YieldResModel calculatedYield;
+
+  @override
+  String toString() {
+    return 'YieldCalculatorResultArgs{key: $key, calculatedYield: $calculatedYield}';
+  }
 }
 
 /// generated route for

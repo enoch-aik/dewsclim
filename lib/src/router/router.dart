@@ -16,6 +16,7 @@ import 'package:dewsclim/features/onboarding/presentation/ui/screens/onboarding.
 import 'package:dewsclim/features/profile/presentation/ui/screens/profile.dart';
 import 'package:dewsclim/features/search/presentation/ui/screens/search.dart';
 import 'package:dewsclim/features/splash/presentation/ui/screens/splash_screen.dart';
+import 'package:dewsclim/features/yield/data/models/yield_res_model.dart';
 import 'package:dewsclim/features/yield/presentation/ui/screens/yield.dart';
 import 'package:dewsclim/features/yield/presentation/ui/screens/yield_calculator_result.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         ///SPLASH
         AutoRoute(page: Splash.page, initial: true),
-        //AutoRoute(page: Splash.page),
+       // AutoRoute(page: Splash.page),
 
         ///ONBOARDING
         AutoRoute(page: Onboarding.page),

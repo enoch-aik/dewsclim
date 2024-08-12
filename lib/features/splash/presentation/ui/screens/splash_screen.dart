@@ -73,7 +73,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
               },
             ).scale(
               duration: const Duration(milliseconds: 1200),
-              delay: const Duration(milliseconds: 100),
+              delay: const Duration(milliseconds: 300),
               curve: const SpringCurve(),
               begin: const Offset(1, 1),
               end: const Offset(0.45, 0.45),

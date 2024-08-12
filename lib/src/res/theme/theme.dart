@@ -59,8 +59,8 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-        minimumSize:
-            MaterialStateProperty.all(const Size(double.maxFinite, 50)),
+        /*minimumSize:
+            MaterialStateProperty.all(const Size(double.maxFinite, 50)),*/
         shape: WidgetStateProperty.all(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
       )),

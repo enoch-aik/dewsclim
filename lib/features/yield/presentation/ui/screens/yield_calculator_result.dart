@@ -1,3 +1,4 @@
+import 'package:dewsclim/features/yield/data/models/yield_res_model.dart';
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/assets/svg/svg.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
@@ -8,7 +9,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 @RoutePage(name: 'yieldCalculatorResult')
 class YieldCalculatorResultScreen extends StatelessWidget {
-  const YieldCalculatorResultScreen({super.key});
+  final YieldResModel calculatedYield;
+
+  const YieldCalculatorResultScreen({super.key, required this.calculatedYield});
 
   @override
   Widget build(BuildContext context) {
@@ -59,21 +62,67 @@ class YieldCalculatorResultScreen extends StatelessWidget {
                       onPlay: (controller) => controller.repeat(reverse: true))
                   .shimmer(duration: const Duration(seconds: 2)),
             ),
-            Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-              'Etiam eu turpis molestie, dictum est a, mattis tellus. '
-              'Sed dignissim, metus nec fringilla accumsan, risus sem '
-              'sollicitudin lacus, ut interdum tellus elit sed risus.'
-              '\n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-              'Etiam eu turpis molestie, dictum est a, mattis tellus. '
-              'Sed dignissim, metus nec fringilla accumsan, risus sem '
-              'sollicitudin lacus, ut interdum tellus elit sed risus.',
-              style: AppStyles.bodyTextStyle.copyWith(
-                fontSize: 14,
-                color: AppColors.baseBlack,
-                fontWeight: FontWeight.w400,
+            if (calculatedYield.yieldEstimate != null)
+              Text.rich(
+                TextSpan(children: [
+                  TextSpan(
+                    text: 'Yield Estimate: ',
+                    style: AppStyles.bodyTextStyle
+                        .copyWith(fontWeight: FontWeight.w600),
+                  ),
+                  TextSpan(
+                      text: calculatedYield.yieldEstimate.toString(),
+                      style: AppStyles.bodyTextStyle),
+                ]),
+                style: AppStyles.bodyTextStyle.copyWith(
+                  fontSize: 16,
+                  color: AppColors.baseBlack,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-            ),
+            const ColSpacing(8),
+            if (calculatedYield.explanation != null &&
+                !calculatedYield.explanation!.contains('Unfortunately'))
+              Text.rich(
+                TextSpan(children: [
+                  TextSpan(
+                    text: 'Explanation: ',
+                    style: AppStyles.bodyTextStyle
+                        .copyWith(fontWeight: FontWeight.w600),
+                  ),
+                  TextSpan(
+                      text: calculatedYield.explanation,
+                      style: AppStyles.bodyTextStyle.copyWith(fontSize: 14)),
+                ]),
+                style: AppStyles.bodyTextStyle.copyWith(
+                  fontSize: 16,
+                  color: AppColors.baseBlack,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            const ColSpacing(16),
+            if (calculatedYield.recommendations != null &&
+                calculatedYield.recommendations!.isNotEmpty)
+              Text(
+                'Recommendations',
+                style: AppStyles.bodyTextStyle.copyWith(
+                  fontSize: 16,
+                  color: AppColors.baseBlack,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            if (calculatedYield.recommendations != null)
+              ...List.generate(
+                calculatedYield.recommendations!.length,
+                (index) => Text(
+                  '${calculatedYield.recommendations![index]}\n',
+                  style: AppStyles.bodyTextStyle.copyWith(
+                    fontSize: 14,
+                    color: AppColors.baseBlack,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
           ],
         ),
       ),

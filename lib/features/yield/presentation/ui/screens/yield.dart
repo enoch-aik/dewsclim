@@ -1,3 +1,8 @@
+import 'package:dewsclim/core/service_exceptions/src/api_exceptions.dart';
+import 'package:dewsclim/features/home/providers.dart';
+import 'package:dewsclim/features/yield/data/models/yield_res_model.dart';
+import 'package:dewsclim/features/yield/domain/params/yield_calculator_params.dart';
+import 'package:dewsclim/features/yield/providers.dart';
 import 'package:dewsclim/lib.dart';
 import 'package:dewsclim/src/res/colors/colors.dart';
 import 'package:dewsclim/src/res/styles/styles.dart';
@@ -24,7 +29,10 @@ class YieldScreen extends HookConsumerWidget {
     final irrigatedOrRainFed = useState<String?>(null);
     final monoOrInterCropped = useState<String?>(null);
     final plantingDate = useTextEditingController();
-    List<String> cropTypes = ['Legumes', 'Cereals', 'Roots', 'Fruits'];
+    List<String> cropTypes = [
+      'Mono',
+      'Inter',
+    ];
     List<String> fieldSizes = [
       '1 hectare',
       '2 hectares',
@@ -40,7 +48,12 @@ class YieldScreen extends HookConsumerWidget {
       'Hybrid seed',
       'Open pollinated seed'
     ];
-    List<String> soilTypes = ['Sandy', 'Loamy', 'Clayey', 'Peaty', 'Silty'];
+    List<String> soilTypes = [
+      'Clay',
+      'Loam',
+      'Sand',
+      'Silt',
+    ];
     List<String> fertilizerOptions = ['Yes', 'No'];
     List<String> pesticideAndHerbicideOptions = ['Yes', 'No'];
     List<String> irrigatedOrRainFedOptions = ['Irrigated', 'Rain-fed'];
@@ -317,12 +330,47 @@ class YieldScreen extends HookConsumerWidget {
                 bottomPadding: 80,
               ),
               FilledButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState?.validate() ?? false) {
                     Loader.show(context);
-                    Future.delayed(const Duration(seconds: 2), () {
+                    final YieldCalculatorParams params = YieldCalculatorParams(
+                        //cropType: cropType.value!.toLowerCase(),
+                        fieldSize: fieldSizes.indexOf(fieldSize.value!) + 1,
+                        soilType: soilType.value!.toLowerCase(),
+                        seedVariety: seedVariety.value!,
+                        fertilizer: fertilizerUsed.value!.toLowerCase(),
+                        pesticide:
+                            pesticideAndHerbicideUsed.value!.toLowerCase(),
+                        isIrrigated: irrigatedOrRainFedOptions
+                                .indexOf(irrigatedOrRainFed.value!) ==
+                            0,
+                        croppingType: monoOrInterCropped.value!
+                            .split(' ')
+                            .first
+                            .toLowerCase(),
+                        state: ref
+                            .watch(selectedLocation)
+                            .split(' ')
+                            .first
+                            .toLowerCase(),
+                        year: int.parse(ref.watch(selectedYear)));
+
+                    final yieldRepo = ref.read(yieldRepoProvider);
+                    final result = await yieldRepo.getYieldEstimate(params);
+
+                    if (context.mounted) {
                       Loader.hide(context);
-                      AppNavigator.of(context).push(const YieldCalculatorResult());
+                    }
+                    result.when(success: (data) {
+
+                      YieldResModel yieldResModel = YieldResModel(yieldEstimate: 1, explanation: 'Tried to get yield esitmate', recommendations: ['Try again','lETS SEE THIS TIME'], );
+
+                      AppNavigator.of(context)
+                          .push(YieldCalculatorResult(calculatedYield: data));
+                    }, apiFailure: (e, _) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(e.message),
+                          backgroundColor: AppColors.error));
                     });
                   }
                 },
