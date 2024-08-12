@@ -1,6 +1,7 @@
 import 'package:dewsclim/lib.dart';
+import 'package:dewsclim/src/app_constants/ngn_states.dart';
 
-final selectedLocation = StateProvider((ref) => '');
+final selectedLocation = StateProvider((ref) => nigerianStates.first);
 
 final StateProvider<int> selectedHomeIndex = StateProvider<int>((ref) => 0);
 

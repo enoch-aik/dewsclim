@@ -85,6 +85,7 @@ class SelectLocationScreen extends HookConsumerWidget {
         context: context,
         isScrollControlled: true,
         showDragHandle: false,
+        isDismissible: true,
         constraints: const BoxConstraints.tightFor(height: 782),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
